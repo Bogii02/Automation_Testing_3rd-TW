@@ -16,10 +16,10 @@ public class Login extends Page {
     private WebElement passwordField;
 
     @FindBy(id = "login-form-submit")
-    WebElement loginButton;
+    private WebElement loginButton;
 
     @FindBy(id = "header-details-user-fullname")
-    WebElement profileMenuID;
+    private WebElement profileMenuID;
 
 
     public Login(WebDriver driver) {
