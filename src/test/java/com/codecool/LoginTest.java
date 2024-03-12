@@ -5,8 +5,6 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class LoginTest {
     private WebDriver driver;
     private static final Dotenv dotenv = Dotenv.load();
@@ -27,10 +25,9 @@ class LoginTest {
     }
 
     @Test
-    public void verifyLogin() throws InterruptedException {
+    public void verifyLogin() {
         Login login = new Login(driver);
         login.login(username, password);
-        Thread.sleep(3000);
         Assertions.assertEquals(username, login.verifyLogin());
     }
 
