@@ -21,6 +21,8 @@ public class Login extends Page {
     @FindBy(id = "header-details-user-fullname")
     WebElement profileMenuID;
 
+    @FindBy(xpath = "//div[contains(@class, 'aui-message-error')]/p\n")
+    private WebElement errorMessage;
 
     public Login(WebDriver driver) {
         super(driver);
@@ -39,6 +41,10 @@ public class Login extends Page {
         loginButton.click();
     }
 
+    public boolean isUnsuccessfulLoginErrorMessageDisplayed(){
+        return errorMessage.isDisplayed();
+    }
+
     public String verifyLogin() {
         return profileMenuID.getAttribute("data-username");
     }
@@ -47,7 +53,6 @@ public class Login extends Page {
         fillUsername(username);
         fillPassword(password);
         clickLoginButton();
-        wait.until(ExpectedConditions.visibilityOf(profileMenuID));
     }
 
 }
