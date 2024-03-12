@@ -41,6 +41,15 @@ class LoginTest {
         login.login(username, password);
         Assertions.assertTrue(login.isUnsuccessfulLoginErrorMessageDisplayed());
     }
+    @Test
+    public void checkCaptchaTest() {
+        String wrongPassword = "hello";
+        Login login = new Login(driver);
+        for (int i = 0; i < 3; i++) {
+            login.login(username, wrongPassword);
+        }
+        Assertions.assertTrue(login.isCaptchaDisplayed());
+    }
 
     @AfterEach
     void tearDown() {
