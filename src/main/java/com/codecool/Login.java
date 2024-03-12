@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class Login extends Page {
@@ -24,6 +25,9 @@ public class Login extends Page {
     @FindBy(xpath = "//div[contains(@class, 'aui-message-error')]/p\n")
     private WebElement errorMessage;
 
+    @FindBy(id = "captcha")
+    private WebElement captchaID;
+
     public Login(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
@@ -41,18 +45,22 @@ public class Login extends Page {
         loginButton.click();
     }
 
-    public boolean isUnsuccessfulLoginErrorMessageDisplayed(){
-        return errorMessage.isDisplayed();
+    public void login(String username, String password) {
+        fillUsername(username);
+        fillPassword(password);
+        clickLoginButton();
     }
 
     public String verifyLogin() {
         return profileMenuID.getAttribute("data-username");
     }
 
-    public void login(String username, String password) {
-        fillUsername(username);
-        fillPassword(password);
-        clickLoginButton();
+    public boolean isUnsuccessfulLoginErrorMessageDisplayed() {
+        return errorMessage.isDisplayed();
+    }
+
+    public boolean isCaptchaDisplayed(){
+        return captchaID.isDisplayed();
     }
 
 }
