@@ -14,8 +14,12 @@ public abstract class Page {
 
     @FindBy(id = "browse_link")
     private WebElement projectsMenuPoint;
-    @FindBy(xpath = "//div[@id='project_view_all']")
+    @FindBy(id = "project_view_all")
     private WebElement viewAllOption;
+    @FindBy(id = "find_link")
+    private WebElement issuesMenuPoint;
+    @FindBy(id = "issues_new_search_link_lnk")
+    private WebElement searchForIssuesOption;
 
     public Page(WebDriver driver) {
         this.driver = driver;
@@ -28,4 +32,9 @@ public abstract class Page {
         viewAllOption.click();
     }
 
+    public void navigateToIssueSearch() {
+        issuesMenuPoint.click();
+        wait.until(ExpectedConditions.visibilityOf(searchForIssuesOption));
+        searchForIssuesOption.click();
+    }
 }
