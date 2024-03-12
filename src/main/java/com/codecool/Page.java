@@ -17,6 +17,9 @@ public abstract class Page {
     @FindBy(xpath = "//div[@id='project_view_all']")
     private WebElement viewAllOption;
 
+    @FindBy(id = "create_link")
+    private WebElement createButton;
+
     public Page(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -26,6 +29,11 @@ public abstract class Page {
         projectsMenuPoint.click();
         wait.until(ExpectedConditions.visibilityOf(viewAllOption));
         viewAllOption.click();
+    }
+
+    public void clickOnCreateButton(){
+        wait.until(ExpectedConditions.visibilityOf(createButton));
+        createButton.click();
     }
 
 }
