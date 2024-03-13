@@ -9,20 +9,31 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public abstract class Page {
+  
+    private static final int TIMEOUT_IN_SECONDS = 10;
+  
     protected WebDriver driver;
+  
     protected WebDriverWait wait;
-
+  
     @FindBy(id = "browse_link")
     private WebElement projectsMenuPoint;
-    @FindBy(xpath = "//div[@id='project_view_all']")
+  
+    @FindBy(id = "project_view_all")
     private WebElement viewAllOption;
+  
+    @FindBy(id = "find_link")
+    private WebElement issuesMenuPoint;
+  
+    @FindBy(id = "issues_new_search_link_lnk")
+    private WebElement searchForIssuesOption;
 
     @FindBy(id = "create_link")
     private WebElement createButton;
 
     public Page(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_IN_SECONDS));
     }
 
     public void navigateToProjectSearch() {
@@ -36,4 +47,9 @@ public abstract class Page {
         createButton.click();
     }
 
+    public void navigateToIssueSearch() {
+        issuesMenuPoint.click();
+        wait.until(ExpectedConditions.visibilityOf(searchForIssuesOption));
+        searchForIssuesOption.click();
+    }
 }
