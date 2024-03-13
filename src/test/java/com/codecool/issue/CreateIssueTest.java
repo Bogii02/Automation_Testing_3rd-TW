@@ -1,8 +1,7 @@
 package com.codecool.issue;
 
-import com.codecool.CreateIssue;
 import com.codecool.IssueDetails;
-import com.codecool.Login;
+import com.codecool.login.Login;
 import com.codecool.Project;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.junit.jupiter.api.AfterEach;

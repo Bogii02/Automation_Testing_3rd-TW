@@ -1,6 +1,6 @@
 package com.codecool.search_issues;
 
-import com.codecool.Login;
+import com.codecool.login.Login;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;

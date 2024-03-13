@@ -1,6 +1,6 @@
 package com.codecool.browse_project;
 
-import com.codecool.Login;
+import com.codecool.login.Login;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;

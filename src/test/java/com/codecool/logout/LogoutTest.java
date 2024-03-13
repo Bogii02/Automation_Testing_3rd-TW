@@ -1,5 +1,6 @@
-package com.codecool;
+package com.codecool.logout;
 
+import com.codecool.login.Login;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
