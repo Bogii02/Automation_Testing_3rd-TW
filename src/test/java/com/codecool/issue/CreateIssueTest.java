@@ -35,9 +35,9 @@ class CreateIssueTest {
     }
 
     @ParameterizedTest
-    @EnumSource(value = Project.class, names = {"MTP", "COALA", "DEMO"})
+    @EnumSource(value = Project.class)
     public void createIssueTest(Project projectType) throws InterruptedException {
-        CreateIssue issue = new CreateIssue(driver, projectType, "meow");
+        CreateIssue issue = new CreateIssue(driver, projectType, "test");
         IssueDetails issueDetails = new IssueDetails(driver);
         issue.clickOnCreateButton();
         issue.createIssue();
