@@ -3,6 +3,7 @@ package com.codecool;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -34,6 +35,7 @@ public abstract class Page {
     public Page(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_IN_SECONDS));
+        PageFactory.initElements(driver, this);
     }
 
     public void navigateToProjectSearch() {

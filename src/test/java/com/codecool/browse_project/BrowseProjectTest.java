@@ -51,6 +51,9 @@ class BrowseProjectTest {
         BrowseProject browseProject = new BrowseProject(driver);
         browseProject.navigateToProjectSearch();
 
-        Assertions.assertThrows(TimeoutException.class, () -> browseProject.isProjectPresent(projectName));
+        browseProject.searchProject(projectName);
+
+        Assertions.assertThrows(TimeoutException.class, () ->
+        browseProject.isProjectPresent(projectName));
     }
 }
