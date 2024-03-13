@@ -38,15 +38,15 @@ class CreateIssueTest {
     @EnumSource(value = Project.class)
     public void createIssueTest(Project projectType) throws InterruptedException {
         CreateIssue issue = new CreateIssue(driver, projectType, "test");
-        IssueDetails issueDetails = new IssueDetails(driver);
         issue.clickOnCreateButton();
         issue.createIssue();
         Assertions.assertEquals(issue.getIssueNameAndGetToIssueDetailedPage(), issue.verifyIssueName());
-        issueDetails.deleteIssue();
     }
 
     @AfterEach
     void tearDown() {
+        IssueDetails issueDetails = new IssueDetails(driver);
+        issueDetails.deleteIssue();
         driver.quit();
     }
 }
