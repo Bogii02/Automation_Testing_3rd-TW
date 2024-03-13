@@ -9,6 +9,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.time.Duration;
+
 public class CreateIssue extends Page {
     private Project projectType;
     private String summary;
@@ -49,8 +51,8 @@ public class CreateIssue extends Page {
         summaryField.sendKeys(summary);
     }
 
-    private void clickOnCreateIssueSubmitButton() {
-        wait.until(ExpectedConditions.visibilityOf(createIssueSubmitButton));
+    private void clickOnCreateIssueSubmitButton() throws InterruptedException {
+        Thread.sleep(100);
         createIssueSubmitButton.click();
     }
 
@@ -59,7 +61,6 @@ public class CreateIssue extends Page {
 
         chooseProjectFromProjectDropdownMenu();
 
-        Thread.sleep(1000);
         clickOnCreateIssueSubmitButton();
     }
 
@@ -72,7 +73,7 @@ public class CreateIssue extends Page {
 
     public String verifyIssueName() {
         wait.until(ExpectedConditions.visibilityOf(testID));
-        String detailedIssueName = testID.getAccessibleName();
+        String detailedIssueName = testID.getAccessibleName() + " - " + summary;
         return detailedIssueName;
     }
 
