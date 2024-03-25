@@ -12,8 +12,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.time.Duration;
 
 public class CreateIssue extends Page {
-    private Project projectType;
-    private String summary;
+    private final Project projectType;
+    private final String summary;
     @FindBy(id = "project-single-select")
     private WebElement projectDropdown;
 
@@ -23,7 +23,7 @@ public class CreateIssue extends Page {
     @FindBy(id = "create-issue-submit")
     private WebElement createIssueSubmitButton;
 
-    @FindBy(xpath = "//*[@id=\"project-field\"]")
+    @FindBy(id = "project-field")
     private WebElement projectInputField;
 
     @FindBy(xpath = "//*[@id=\"aui-flag-container\"]/div/div/a")

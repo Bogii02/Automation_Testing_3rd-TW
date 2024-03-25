@@ -1,4 +1,4 @@
-package com.codecool.search_issues;
+package com.codecool.issue;
 
 import com.codecool.Page;
 import net.bytebuddy.asm.Advice;

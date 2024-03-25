@@ -11,14 +11,13 @@ public class Logout extends Page {
     private WebElement userOptions;
     @FindBy(id = "system")
     private WebElement logoutButton;
-
     @FindBy(xpath = "//a[@href='/login.jsp']")
     private WebElement loginButton;
+
     public Logout(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
-
     private void clickUserOptions() {
         userOptions.click();
     }

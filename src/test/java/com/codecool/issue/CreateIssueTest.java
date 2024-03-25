@@ -1,6 +1,5 @@
 package com.codecool.issue;
 
-import com.codecool.IssueDetails;
 import com.codecool.login.Login;
 import com.codecool.Project;
 import io.github.cdimascio.dotenv.Dotenv;

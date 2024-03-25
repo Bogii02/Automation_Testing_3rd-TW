@@ -1,5 +1,6 @@
-package com.codecool.search_issues;
+package com.codecool.issue;
 
+import com.codecool.issue.SearchIssues;
 import com.codecool.login.Login;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.junit.jupiter.api.*;

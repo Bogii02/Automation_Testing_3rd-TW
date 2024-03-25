@@ -27,7 +27,7 @@ class LoginTest {
     }
 
     @Test
-    public void verifyLogin() {
+    public void successfulLogin() {
         Login login = new Login(driver);
         login.login(username, password);
         Assertions.assertEquals(username, login.verifyLogin());

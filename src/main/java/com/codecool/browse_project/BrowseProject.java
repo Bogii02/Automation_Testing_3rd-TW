@@ -19,7 +19,6 @@ public class BrowseProject extends Page {
 
     public void searchProject(String name) {
         projectSearchField.sendKeys(name);
-
     }
 
     public boolean isProjectPresent(String name) {
